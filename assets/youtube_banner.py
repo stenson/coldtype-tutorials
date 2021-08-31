@@ -13,6 +13,7 @@ def banner(r):
             Style(Font.ColdtypeObviously(), 450,
                 wdth=ez(g.e, "seio", 2, rng=(1, 0)),
                 kp={"D/T":-170},
+                tu=-10,
                 ro=1))
             .f(1)
             .reversePens()
