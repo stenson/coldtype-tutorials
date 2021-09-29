@@ -7,7 +7,8 @@ txt = "WORK\nSHOP"
 #txt = "9/30\n2021"
 
 midi_file = __sibling__("media/tw2021_drums.mid")
-drums = MidiReader(midi_file, duration=240, bpm=120, fps=30)[0]
+midi = MidiReader(midi_file, duration=240, bpm=120, fps=30)
+drums = midi[0]
 
 h = 0.75
 if "cold" in txt.lower():
@@ -17,7 +18,7 @@ elif "work" in txt.lower():
 elif "2021" in txt:
     h = 0.65
 
-@animation(timeline=drums.duration, bg=hsl(h, 1, 0.3), render_bg=1)
+@animation(timeline=midi, bg=hsl(h, 1, 0.3), render_bg=1)
 def tw2021_loop3(f):
     kick = drums.fv(f.i, [36], [5, 50])
     snare = drums.fv(f.i, [40], [10, 40])
